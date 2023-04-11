@@ -94,8 +94,10 @@ public class Alunos {
         }
     }
 
-    public static void alterar (Aluno aluno) throws Exception
+    public static void alterar (int ra, String nome, String dataNascimento, String email, String cep, int numero, String complemento) throws Exception
     {
+        Aluno aluno = new Aluno();
+
         if (aluno == null)
             throw new Exception ("Aluno inexistente");
         

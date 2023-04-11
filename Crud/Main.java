@@ -19,7 +19,7 @@ public class Main
         {
             System.out.println("----------------- ALUNO ----------------");
 
-            System.out.println("Operações: \n1 - Inserir \n2 - Deletar \n3 - Alterar \n4 - Visualizar um \n5 - Visualizar\n0 - Sair\n Qual operação deseja realizar?");
+            System.out.println("Operações: \n1 - Inserir \n2 - Deletar \n3 - Alterar \n4 - Visualizar um \n5 - Visualizar \n0 - Sair \n\nQual operação deseja realizar?");
             
             operacao = teclado.getUmInt();
 
@@ -34,6 +34,18 @@ public class Main
             if(operacao == 3)
             {
                 metodos.Alterar();
+            }
+            if(operacao == 4)
+            {
+                metodos.RecuperaUm();
+            }
+            if(operacao == 5)
+            {
+                metodos.RecupereTodos();
+            }
+            if(operacao == 0)
+            {
+                System.exit(0);
             }
         }
         catch (Exception erro)
