@@ -23,15 +23,14 @@ public class Alunos {
             conexao.COMANDO.setInt (1, ra);
 
             MeuResultSet resultado = (MeuResultSet)conexao.COMANDO.executeQuery();
-
+                       
             retorno = resultado.first();
         }
 
         catch (SQLException erro)
         {
-            throw new Exception ("Erro ao procurar livro");
+            throw new Exception ("Erro ao procurar aluno");
         }
-
         return retorno;
     }
 
@@ -96,12 +95,8 @@ public class Alunos {
 
     public static void alterar (int ra, String nome, String dataNascimento, String email, String cep, int numero, String complemento) throws Exception
     {
-        Aluno aluno = new Aluno();
-
-        if (aluno == null)
-            throw new Exception ("Aluno inexistente");
         
-        if (!cadastrado (aluno.getRa()))
+        if (!cadastrado (ra))
             throw new Exception ("Aluno nao cadastrado");
 
         try
@@ -112,13 +107,13 @@ public class Alunos {
 
             conexao.COMANDO.prepareStatement(sql);
 
-            conexao.COMANDO.setString (1, aluno.getNome());
-            conexao.COMANDO.setString (2, aluno.getDataNascimento());
-            conexao.COMANDO.setString (3, aluno.getEmail());
-            conexao.COMANDO.setString (4, aluno.getCep());
-            conexao.COMANDO.setInt    (5, aluno.getNumero());
-            conexao.COMANDO.setString (6, aluno.getComplemento());
-            conexao.COMANDO.setInt    (7, aluno.getRa());
+            conexao.COMANDO.setString (1, nome);
+            conexao.COMANDO.setString (2, dataNascimento);
+            conexao.COMANDO.setString (3, email);
+            conexao.COMANDO.setString (4, cep);
+            conexao.COMANDO.setInt    (5, numero);
+            conexao.COMANDO.setString (6, complemento);
+            conexao.COMANDO.setInt    (7, ra);
 
             conexao.COMANDO.executeUpdate ();
             conexao.COMANDO.commit        ();
@@ -162,7 +157,7 @@ public class Alunos {
         return aluno;
     }
 
-    public static MeuResultSet getAlunos () throws Exception
+    /*public static MeuResultSet getAlunos () throws Exception
     {
         MeuResultSet resultado = null;
 
@@ -182,6 +177,6 @@ public class Alunos {
         }
 
         return resultado;
-    }
+    }*/
 
 }

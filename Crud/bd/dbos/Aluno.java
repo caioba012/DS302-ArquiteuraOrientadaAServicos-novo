@@ -99,7 +99,6 @@ public class Aluno implements Cloneable{
         this.complemento = complemento;
     }
 
-
     public Aluno (int ra, String nome, String dataNascimento, 
                     String email, String cep, int numero, 
                     String complemento) throws Exception
