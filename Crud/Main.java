@@ -10,7 +10,7 @@ public class Main
     public static void main (String[] args)
     {
         metodos metodos = new metodos();
-        Teclado teclado = new Teclado();
+        Teclado teclado = new Teclado(); 
 
         int operacao;
        

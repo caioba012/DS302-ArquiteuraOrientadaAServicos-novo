@@ -94,7 +94,7 @@ public class metodos extends Aluno{
         System.out.println("Número: " +             aluno.getNumero());
         System.out.println("Complemento: " +        aluno.getComplemento() + "\n");   
 
-        System.out.print("\nDeseja alterar o nome? (1-Sim ou 2-Não)");
+        System.out.print("\nDeseja alterar o nome? (1-Sim - 2-Não - 0-Sair)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -102,11 +102,16 @@ public class metodos extends Aluno{
             System.out.print("\nDigite o novo nome: ");
             nome = teclado.getUmString();
         }
-        else{
+        if(SouN == 2)
+        {
            nome = aluno.getNome();
         }
+        if(SouN == 0)
+        {
+            System.exit(0);
+        }
 
-        System.out.print("\nDeseja alterar a data de nascimento? (1-Sim ou 2-Não)");
+        System.out.print("\nDeseja alterar a data de nascimento? (1-Sim - 2-Não - 0-Sair)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -114,11 +119,16 @@ public class metodos extends Aluno{
             System.out.print("\nDigite a nova data de nascimento: ");
             dataNascimento = teclado.getUmString();
         }
-        else{
+        if(SouN == 2)
+        {
             dataNascimento = aluno.getDataNascimento();
         }
+        if(SouN == 0)
+        {
+            System.exit(0);
+        }      
 
-        System.out.print("\nDeseja alterar o email? (1-Sim ou 2-Não)");
+        System.out.print("\nDeseja alterar o email? (1-Sim - 2-Não - 0-Sair)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -126,10 +136,16 @@ public class metodos extends Aluno{
             System.out.print("\nDigite o novo email: ");
             email = teclado.getUmString();
         }
-        else 
+        if(SouN == 2) 
+        {
             email = aluno.getEmail();
-        
-        System.out.print("\nDeseja alterar o cep? (1-Sim ou 2-Não)");
+        }
+        if(SouN == 0)
+        {
+            System.exit(0);
+        }
+
+        System.out.print("\nDeseja alterar o cep? (1-Sim - 2-Não - 0-Sair)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -137,21 +153,33 @@ public class metodos extends Aluno{
             System.out.print("\nDigite o novo cep: ");
             cep = teclado.getUmString();
         }
-        else 
+        if(SouN == 2) 
+        {
            cep = aluno.getCep();
+        }
+        if(SouN == 0)
+        {
+            System.exit(0);
+        }
 
-        System.out.print("\nDeseja alterar o numero da casa? (1-Sim ou 2-Não)");
+        System.out.print("\nDeseja alterar o numero da casa? (1-Sim - 2-Não - 0-Sair)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
         {
             System.out.print("\nDigite o novo numero da casa: ");
             numero = teclado.getUmInt();
+        } 
+        if(SouN ==2)
+        {
+            numero = aluno.getNumero();
         }
-        else 
-           numero = aluno.getNumero();
+        if(SouN == 0)
+        {
+            System.exit(0);
+        }
 
-        System.out.print("\nDeseja alterar o complemento? (1-Sim ou 2-Não)");
+        System.out.print("\nDeseja alterar o complemento? (1-Sim - 2-Não - 0-Sair)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -159,11 +187,28 @@ public class metodos extends Aluno{
             System.out.print("\nDigite o novo complemento: ");
             complemento = teclado.getUmString();
         }
-        else 
+        if(SouN == 2) 
+        {
            complemento = aluno.getComplemento();
+        }
+        if(SouN == 0)
+        {
+            System.exit(0);
+        }
 
         Alunos.alterar(ra, nome, dataNascimento, email, cep, numero, complemento);
         
+        System.out.println("\nRelatório: ");
+        System.out.println("\nRa: " +               aluno.getRa()); 
+        System.out.println("Nome: " +               aluno.getNome()); 
+        System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
+        System.out.println("Email: " +              aluno.getEmail());
+        System.out.println("Cep: " +                aluno.getCep());
+        System.out.println("Estado: " +             logradouro.getEstado());
+        System.out.println("Cidade: " +             logradouro.getCidade());
+        System.out.println("Bairro: " +             logradouro.getBairro());
+        System.out.println("Número: " +             aluno.getNumero());
+        System.out.println("Complemento: " +        aluno.getComplemento() + "\n");  
     }
 
     public void RecuperaUm() throws Exception
@@ -186,4 +231,5 @@ public class metodos extends Aluno{
         System.out.println("Número: " + aluno.getNumero());
         System.out.println("Complemento: " + aluno.getComplemento() + "\n");       
     }
+
 }
