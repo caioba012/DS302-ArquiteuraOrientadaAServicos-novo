@@ -1,5 +1,3 @@
- import bd.dbos.Aluno;
-
 import bd.daos.Alunos;
 import bd.dbos.Aluno;
 
@@ -72,7 +70,30 @@ public class metodos extends Aluno{
         System.out.print("Digite o ra para exclusão: ");
         ra = teclado.getUmInt();
 
-        Alunos.excluir(ra);
+        Aluno aluno = Alunos.getAluno(ra);
+        Logradouro logradouro = (Logradouro)ClienteWS.getObjeto(Logradouro.class, "https://api.postmon.com.br/v1/cep", aluno.getCep());
+
+        System.out.println("\nRa: " +               aluno.getRa()); 
+        System.out.println("Nome: " +               aluno.getNome()); 
+        System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
+        System.out.println("Email: " +              aluno.getEmail());
+        System.out.println("Cep: " +                aluno.getCep());
+        System.out.println("Estado: " +             logradouro.getEstado());
+        System.out.println("Cidade: " +             logradouro.getCidade());
+        System.out.println("Bairro: " +             logradouro.getBairro());
+        System.out.println("Número: " +             aluno.getNumero());
+        System.out.println("Complemento: " +        aluno.getComplemento() + "\n");   
+
+        System.out.println("Deseja confirmar a ação? 1-Sim 2-Não");
+        SouN = teclado.getUmInt();
+        if(SouN == 1){
+            System.out.println("Operação Concluida");
+            Alunos.excluir(ra);
+        }
+        if(SouN == 2){
+            System.out.println("Operação Cancelada");
+            System.exit(0);
+        }
     }
 
     public void Alterar() throws Exception
@@ -198,17 +219,19 @@ public class metodos extends Aluno{
 
         Alunos.alterar(ra, nome, dataNascimento, email, cep, numero, complemento);
         
+        logradouro = (Logradouro)ClienteWS.getObjeto(Logradouro.class, "https://api.postmon.com.br/v1/cep", cep);
+
         System.out.println("\nRelatório: ");
-        System.out.println("\nRa: " +               aluno.getRa()); 
-        System.out.println("Nome: " +               aluno.getNome()); 
-        System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
-        System.out.println("Email: " +              aluno.getEmail());
-        System.out.println("Cep: " +                aluno.getCep());
+        System.out.println("\nRa: " +               ra); 
+        System.out.println("Nome: " +               nome); 
+        System.out.println("Data de Nascimento: " + dataNascimento);
+        System.out.println("Email: " +              email);
+        System.out.println("Cep: " +                cep);
         System.out.println("Estado: " +             logradouro.getEstado());
         System.out.println("Cidade: " +             logradouro.getCidade());
         System.out.println("Bairro: " +             logradouro.getBairro());
-        System.out.println("Número: " +             aluno.getNumero());
-        System.out.println("Complemento: " +        aluno.getComplemento() + "\n");  
+        System.out.println("Número: " +             numero);
+        System.out.println("Complemento: " +        complemento + "\n");  
     }
 
     public void RecuperaUm() throws Exception
