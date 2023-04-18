@@ -156,27 +156,4 @@ public class Alunos {
 
         return aluno;
     }
-
-    /*public static MeuResultSet getAlunos () throws Exception
-    {
-        MeuResultSet resultado = null;
-
-        try
-        {
-            String sql;
-
-            sql = "SELECT * FROM Alunos";
-
-            conexao.COMANDO.prepareStatement (sql);
-
-            resultado = (MeuResultSet)conexao.COMANDO.executeQuery ();
-        }
-        catch (SQLException erro)
-        {
-            throw new Exception ("Erro ao recuperar alunos");
-        }
-
-        return resultado;
-    }*/
-
 }

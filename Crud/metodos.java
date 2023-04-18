@@ -39,6 +39,17 @@ public class metodos extends Aluno{
             System.out.println("Digite o cep: ");
             cep = teclado.getUmString();
 
+            Logradouro logradouro = (Logradouro)ClienteWS.getObjeto(Logradouro.class, "https://api.postmon.com.br/v1/cep", cep);
+            
+            System.out.println("Estado: " );
+            System.out.println(logradouro.getEstado());
+            System.out.println("Cidade: ");
+            System.out.println(logradouro.getCidade());
+            System.out.println("Bairro: ");
+            System.out.println(logradouro.getBairro());
+            System.out.println("Logradouro: ");
+            System.out.println(logradouro.getLogradouro());
+
             System.out.println("Digite o numero da casa: ");
             numero = teclado.getUmInt();
 
@@ -48,7 +59,7 @@ public class metodos extends Aluno{
             Aluno aluno = new Aluno(ra, nome, dataNascimento, email, cep, numero, complemento);
             Alunos.incluir(aluno);
 
-            Logradouro logradouro = (Logradouro)ClienteWS.getObjeto(Logradouro.class, "https://api.postmon.com.br/v1/cep", aluno.getCep());
+            logradouro = (Logradouro)ClienteWS.getObjeto(Logradouro.class, "https://api.postmon.com.br/v1/cep", aluno.getCep());
 
             System.out.println("\nRelatório:");
 
@@ -60,6 +71,7 @@ public class metodos extends Aluno{
             System.out.println("Estado: " +             logradouro.getEstado());
             System.out.println("Cidade: " +             logradouro.getCidade());
             System.out.println("Bairro: " +             logradouro.getBairro());
+            System.out.println("Logradouro: "+          logradouro.getLogradouro());
             System.out.println("Número: " +             aluno.getNumero());
             System.out.println("Complemento: " +        aluno.getComplemento() + "\n");   
             }
@@ -77,10 +89,11 @@ public class metodos extends Aluno{
         System.out.println("Nome: " +               aluno.getNome()); 
         System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
         System.out.println("Email: " +              aluno.getEmail());
-        System.out.println("Cep: " +                aluno.getCep());
+        System.out.println("Cep: " +                aluno.getCep());        
         System.out.println("Estado: " +             logradouro.getEstado());
         System.out.println("Cidade: " +             logradouro.getCidade());
         System.out.println("Bairro: " +             logradouro.getBairro());
+        System.out.println("Logradouro: "+          logradouro.getLogradouro());
         System.out.println("Número: " +             aluno.getNumero());
         System.out.println("Complemento: " +        aluno.getComplemento() + "\n");   
 
@@ -92,7 +105,6 @@ public class metodos extends Aluno{
         }
         if(SouN == 2){
             System.out.println("Operação Cancelada");
-            System.exit(0);
         }
     }
 
@@ -112,10 +124,11 @@ public class metodos extends Aluno{
         System.out.println("Estado: " +             logradouro.getEstado());
         System.out.println("Cidade: " +             logradouro.getCidade());
         System.out.println("Bairro: " +             logradouro.getBairro());
+        System.out.println("Logradouro: "+          logradouro.getLogradouro());
         System.out.println("Número: " +             aluno.getNumero());
         System.out.println("Complemento: " +        aluno.getComplemento() + "\n");   
 
-        System.out.print("\nDeseja alterar o nome? (1-Sim - 2-Não - 0-Sair)");
+        System.out.print("\nDeseja alterar o nome? (1-Sim - 2-Não - 0-Sair do código)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -132,7 +145,7 @@ public class metodos extends Aluno{
             System.exit(0);
         }
 
-        System.out.print("\nDeseja alterar a data de nascimento? (1-Sim - 2-Não - 0-Sair)");
+        System.out.print("\nDeseja alterar a data de nascimento? (1-Sim - 2-Não - 0-Sair do código)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -149,7 +162,7 @@ public class metodos extends Aluno{
             System.exit(0);
         }      
 
-        System.out.print("\nDeseja alterar o email? (1-Sim - 2-Não - 0-Sair)");
+        System.out.print("\nDeseja alterar o email? (1-Sim - 2-Não - 0-Sair do código)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -166,7 +179,7 @@ public class metodos extends Aluno{
             System.exit(0);
         }
 
-        System.out.print("\nDeseja alterar o cep? (1-Sim - 2-Não - 0-Sair)");
+        System.out.print("\nDeseja alterar o cep? (1-Sim - 2-Não - 0-Sair do código)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -183,7 +196,7 @@ public class metodos extends Aluno{
             System.exit(0);
         }
 
-        System.out.print("\nDeseja alterar o numero da casa? (1-Sim - 2-Não - 0-Sair)");
+        System.out.print("\nDeseja alterar o numero da casa? (1-Sim - 2-Não - 0-Sair do código)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -200,7 +213,7 @@ public class metodos extends Aluno{
             System.exit(0);
         }
 
-        System.out.print("\nDeseja alterar o complemento? (1-Sim - 2-Não - 0-Sair)");
+        System.out.print("\nDeseja alterar o complemento? (1-Sim - 2-Não - 0-Sair do código)");
         SouN = teclado.getUmInt();
 
         if(SouN == 1)
@@ -230,6 +243,7 @@ public class metodos extends Aluno{
         System.out.println("Estado: " +             logradouro.getEstado());
         System.out.println("Cidade: " +             logradouro.getCidade());
         System.out.println("Bairro: " +             logradouro.getBairro());
+        System.out.println("Logradouro: "+          logradouro.getLogradouro());
         System.out.println("Número: " +             numero);
         System.out.println("Complemento: " +        complemento + "\n");  
     }
@@ -251,6 +265,7 @@ public class metodos extends Aluno{
         System.out.println("Estado: " + logradouro.getEstado());
         System.out.println("Cidade: " + logradouro.getCidade());
         System.out.println("Bairro: " + logradouro.getBairro());
+        System.out.println("Logradouro: "+          logradouro.getLogradouro());
         System.out.println("Número: " + aluno.getNumero());
         System.out.println("Complemento: " + aluno.getComplemento() + "\n");       
     }

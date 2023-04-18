@@ -19,7 +19,7 @@ public class Main
         {
             System.out.println("----------------- ALUNO ----------------");
 
-            System.out.println("Operações: \n1 - Inserir \n2 - Deletar \n3 - Alterar \n4 - Visualizar \n0 - Sair \n\nQual operação deseja realizar?");
+            System.out.println("Operações: \n1 - Inserir \n2 - Deletar \n3 - Alterar \n4 - Visualizar \n0 - Sair do código \n\nQual operação deseja realizar?");
             
             operacao = teclado.getUmInt();
 
